@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квартири</title>
+    <!-- Ваша таблица стилей (CSS) или другие метаданные -->
+    <link rel="stylesheet" href="./css/styles_form.css">
+    <link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./css/styles_apartments.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">Назва</h1>
+        <nav class="navigation">
+                    <a href="index.html">Головна</a>
+                    <a href="#">Квартири</a>
+                    <a href="#">Будинки</a>
+                    <a href="#">Хостинги</a>
+                    <button class="btnLogin-popup">Увійти/Зареєструватися</button>
+    </header>
+
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="from-box login">
+            <h2>Увійти</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Пароль</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Пам'ятай мене</label>
+                    <a href="#">Забули пароль?</a>
+                </div>
+                <button type="submit" class="btn">Увійти</button>
+                <div class="login-register">
+                    <p>Немає облікового запису?<a href="#" class="register-link">Зареєструватися</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="from-box register">
+            <h2>Зареєструватися</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label>Ім'я</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Пароль</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Я погоджуюся з положеннями та умовами</label>
+                </div>
+                <button type="submit" class="btn">Зареєструватися</button>
+                <div class="login-register">
+                    <p>Вже є аккаунт?<a href="#" class="login-link">Увійти</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <main id="container">
+        <section class="section-filter">
+            <h2>Фільтри</h2>
+            <form class="form-filter">
+                <div>
+                <label class="label-filter">Район</label><br>
+                <select name="user_profile_color_2" required="required" class="selects">
+                    <option value="">Львів</option>
+                    <option value="1">Львівський</option>
+                    <option value="2">Дрогобицький</option>
+                    <option value="3">Червоноградський</option>
+                    <option value="4">Стрийський</option>
+                    <option value="5">Самбірський</option>
+                    <option value="6">Золочівський</option>
+                    <option value="7">Яворівський</option>
+                </select>
+                </div>
+                <div>
+                <label class="label-filter">Категорія</label><br>
+                <select name="user_profile_color_2" required="required" class="selects">
+                    <option value="">Квартири</option>
+                    <option value="1">Будинки</option>
+                    <option value="2">Хостинги</option>
+                </select>
+                </div>
+                <div>
+                    <label class="label-filter">Кількість осіб</label><br>
+                    <input type="text" name="number"  class="selects" style="width: 100px;"/>
+                </div>
+                <div>
+                    <label for="start" class="label-filter">Дата заїзду</label><br>
+                    <input type="date" id="start" name="trip-start" value="2024-01-01" class="selects"/>
+                </div>
+                <div>
+                    <label for="start" class="label-filter">Дата виїзду</label><br>
+                    <input type="date" id="start" name="trip-start" value="2024-01-01" class="selects"/>
+                </div>
+                <div>
+                    <label class="label-filter">Ціна</label><br>
+                    <input type="text" name="pricefrom" placeholder="Від:" class="selects" style="width: 100px;"/>
+                    <input type="text" name="priceto" placeholder="до:" class="selects" style="width: 100px;"/>
+                </div>
+            </form>
+        </section>
+		<section class="houses">
+            <a href="apartments_1.html" class="house"><div>
+                <img src="img/house1.webp" alt="Котедж від забудовника 134м2 у Скнилові">
+                <div class="house-info">
+                    <h2>Котедж від забудовника 134м2 у Скнилові</h2>
+                    <p class="price">4 157 381 грн.</p>
+                </div>
+                <div class="description">
+                    <p>Опис: Ця квартира робилась не для продажу, а для життя!</p>
+                </div>
+                <div class="address">
+                    <p>Скнилів, 30 квітня 2024 р.</p>
+                    <p>Площа: 50м2</p>
+                </div>
+            </div></a>
+
+            <a href="#" class="house"><div>
+                <img src="img/house1.webp" alt="Котедж від забудовника 134м2 у Скнилові">
+                <div class="house-info">
+                    <h2>Котедж від забудовника 134м2 у Скнилові</h2>
+                    <p class="price">4 157 381 грн.</p>
+                </div>
+                <div class="description">
+                    <p>Опис: Ця квартира робилась не для продажу, а для життя!</p>
+                </div>
+                <div class="address">
+                    <p>Скнилів, 30 квітня 2024 р.</p>
+                    <p>Площа: 50м2</p>
+                </div>
+            </div></a>
+
+            <a href="#" class="house"><div>
+                <img src="img/house1.webp" alt="Котедж від забудовника 134м2 у Скнилові">
+                <div class="house-info">
+                    <h2>Котедж від забудовника 134м2 у Скнилові</h2>
+                    <p class="price">4 157 381 грн.</p>
+                </div>
+                <div class="description">
+                    <p>Опис: Ця квартира робилась не для продажу, а для життя!</p>
+                </div>
+                <div class="address">
+                    <p>Скнилів, 30 квітня 2024 р.</p>
+                    <p>Площа: 50м2</p>
+                </div>
+            </div></a>
+        </section>
+    </main>
+    
+    <footer><center>© 2024 Герчук Вікторія<br> 
+        Всі права захищені.<br>
+        м.Львів<br>
+        Email: vikaherchyk@gmail.com</center></footer> 
+
+    <!-- Ваши скрипты или другие ресурсы -->
+    <script src="./js/script_form.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

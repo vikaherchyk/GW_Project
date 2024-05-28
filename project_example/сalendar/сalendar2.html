@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Календар</title>
+<style>
+.calendar {
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.month {
+  text-align: center;
+  padding: 10px 0;
+  background: #1abc9c;
+  color: white;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+  display: flex;
+}
+
+.weekdays li {
+  list-style-type: none;
+  width: calc(100% / 7);
+  text-align: center;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  width: calc(100% / 7);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  user-select: none;
+}
+
+.free {
+  background-color: lightgreen;
+}
+
+.not-free {
+  background-color: lightcoral;
+}
+
+.weekend {
+  background-color: lightgreen;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+/* Button styles */
+.show-calendar {
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Змінений CSS */
+.calendar {
+  display: none; /* Початково ховаємо календар */
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Змінений CSS */
+.show-calendar {
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<button id="calendarButton" class="show-calendar">Відкрити календар</button>
+<div class="calendar">
+  <div class="month">
+    <ul>
+      <li class="prev">&#10094;</li>
+      <li class="next">&#10095;</li>
+      <li>Січень<br><span style="font-size:18px">2024</span></li>
+    </ul>
+  </div>
+  <ul class="weekdays">
+    <li>Пн</li>
+    <li>Вт</li>
+    <li>Ср</li>
+    <li>Чт</li>
+    <li>Пт</li>
+    <li>Сб</li>
+    <li>Нд</li>
+  </ul>
+  <ul class="days">
+    <!-- Days will be inserted here by JavaScript -->
+  </ul>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const monthElement = document.querySelector('.month');
+  const daysElement = document.querySelector('.days');
+
+  // Змінений: Додано обробник події для кнопки "Відкрити календар"
+  document.getElementById('calendarButton').addEventListener('click', function() {
+    document.querySelector('.calendar').style.display = 'block'; // Показуємо календар
+  });
+
+  const date = new Date();
+  let currentMonth = date.getMonth();
+  let currentYear = date.getFullYear();
+
+  function generateCalendar(month, year) {
+    const startDate = new Date(year, month, 1);
+    const endDate = new Date(year, month + 1, 0);
+
+    monthElement.innerHTML = '';
+    monthElement.innerHTML += `
+      <ul>
+        <li class="prev">&#10094;</li>
+        <li class="next">&#10095;</li>
+        <li>${getMonthName(month)}<br><span style="font-size:18px">${year}</span></li>
+      </ul>
+    `;
+
+    daysElement.innerHTML = '';
+    for (let i = 0; i < startDate.getDay(); i++) {
+      daysElement.innerHTML += '<li></li>';
+    }
+    for (let i = 1; i <= endDate.getDate(); i++) {
+      const day = new Date(year, month, i);
+      let classNames = '';
+      if (day.getDay() === 0 || day.getDay() === 6) {
+        classNames += 'weekend ';
+      }
+      if (isHoliday(day)) {
+        classNames += 'not-free ';
+      } else {
+        classNames += 'free ';
+      }
+      daysElement.innerHTML += `<li class="${classNames}">${i}</li>`;
+    }
+  }
+
+  function getMonthName(monthIndex) {
+    const months = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
+    return months[monthIndex];
+  }
+
+  function isHoliday(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+
+    // Позначаємо 5 травня 2024 року як невільне, а 6 травня 2024 року як вільне
+    if (year === 2024 && month === 4 && day === 6) {
+      return false; // Вільне
+    } else if (year === 2024 && month === 4 && day === 7) {
+      return true; // Невільне
+    }
+
+    // Ваша логіка перевірки на інші свята тут
+    return false;
+  }
+
+  generateCalendar(currentMonth, currentYear);
+
+  monthElement.addEventListener('click', function (e) {
+    if (e.target.classList.contains('prev')) {
+      if (currentMonth === 0) {
+        currentMonth = 11;
+        currentYear -= 1;
+      } else {
+        currentMonth -= 1;
+      }
+    } else if (e.target.classList.contains('next')) {
+      if (currentMonth === 11) {
+        currentMonth = 0;
+        currentYear += 1;
+      } else {
+        currentMonth += 1;
+      }
+    }
+    generateCalendar(currentMonth, currentYear);
+  });
+});
+</script>
+</body>
+</html>

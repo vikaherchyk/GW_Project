@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квартири</title>
+    <!-- Ваша таблица стилей (CSS) или другие метаданные -->
+    <link rel="stylesheet" href="./css/styles_form.css">
+    <link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./css/styles_apartments.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo">Назва</h1>
+        <nav class="navigation">
+                    <a href="index.html">Головна</a>
+                    <a href="#">Квартири</a>
+                    <a href="#">Будинки</a>
+                    <a href="#">Хостинги</a>
+                    <button class="btnLogin-popup">Увійти/Зареєструватися</button>
+    </header>
+
+    <div class="wrapper">
+      <span class="icon-close">
+          <ion-icon name="close"></ion-icon>
+      </span>
+      <div class="from-box login">
+          <h2>Увійти</h2>
+          <form action="#">
+              <div class="input-box">
+                  <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                  <input type="email" required>
+                  <label>Email</label>
+              </div>
+              <div class="input-box">
+                  <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                  <input type="password" required>
+                  <label>Пароль</label>
+              </div>
+              <div class="remember-forgot">
+                  <label><input type="checkbox">Пам'ятай мене</label>
+                  <a href="#">Забули пароль?</a>
+              </div>
+              <button type="submit" class="btn">Увійти</button>
+              <div class="login-register">
+                  <p>Немає облікового запису?<a href="#" class="register-link">Зареєструватися</a></p>
+              </div>
+          </form>
+      </div>
+
+      <div class="from-box register">
+          <h2>Зареєструватися</h2>
+          <form action="#">
+              <div class="input-box">
+                  <span class="icon"><ion-icon name="person"></ion-icon></span>
+                  <input type="text" required>
+                  <label>Ім'я</label>
+              </div>
+              <div class="input-box">
+                  <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                  <input type="email" required>
+                  <label>Email</label>
+              </div>
+              <div class="input-box">
+                  <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                  <input type="password" required>
+                  <label>Пароль</label>
+              </div>
+              <div class="remember-forgot">
+                  <label><input type="checkbox">Я погоджуюся з положеннями та умовами</label>
+              </div>
+              <button type="submit" class="btn">Зареєструватися</button>
+              <div class="login-register">
+                  <p>Вже є аккаунт?<a href="#" class="login-link">Увійти</a></p>
+              </div>
+          </form>
+      </div>
+  </div>
+    
+    <main>
+        <!-- Container for the image gallery -->
+        <div class="container-apartments">
+            <!-- Full-width images with number text -->
+            <div class="mySlides">
+              <div class="numbertext">1 / 6</div>
+                <img src="img/apartments_1/photo1.jpg" style="width:100%">
+            </div>
+          
+            <div class="mySlides">
+              <div class="numbertext">2 / 6</div>
+                <img src="img/apartments_1/photo2.jpg" style="width:100%">
+            </div>
+          
+            <div class="mySlides">
+              <div class="numbertext">3 / 6</div>
+                <img src="img/apartments_1/photo3.jpg" style="width:100%">
+            </div>
+          
+            <div class="mySlides">
+              <div class="numbertext">4 / 6</div>
+                <img src="img/apartments_1/photo4.jpg" style="width:100%">
+            </div>
+          
+            <div class="mySlides">
+              <div class="numbertext">5 / 6</div>
+                <img src="img/apartments_1/photo5.jpg" style="width:100%">
+            </div>
+          
+            <div class="mySlides">
+              <div class="numbertext">6 / 6</div>
+                <img src="img/apartments_1/photo6.jpg" style="width:100%">
+            </div>
+          
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          
+            <div class="caption-container">
+              <p id="caption"></p>
+            </div>
+          
+            <div class="row">
+              <div class="column">
+                <img class="demo cursor" src="img/apartments_1/photo1.jpg" style="width:100%" onclick="currentSlide(1)">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="img/apartments_1/photo2.jpg" style="width:100%" onclick="currentSlide(2)">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="img/apartments_1/photo3.jpg" style="width:100%" onclick="currentSlide(3)">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="img/apartments_1/photo4.jpg" style="width:100%" onclick="currentSlide(4)">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="img/apartments_1/photo5.jpg" style="width:100%" onclick="currentSlide(5)">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="img/apartments_1/photo6.jpg" style="width:100%" onclick="currentSlide(6)">
+              </div>
+            </div>
+          </div>
+
+          <div class="container-communication">
+            <form id="form" class="form">
+              <div class="form-control">
+                <label for="username">І'мя</label>
+                <input type="text" placeholder="І'мя" id="username" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Повідомлення про помилку</small>
+              </div>
+              <div class="form-control">
+                <label for="username">Email</label>
+                <input type="email" placeholder="Email" id="email" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Повідомлення про помилку</small>
+              </div>
+              <div class="form-control">
+                <label for="phone">Телефон</label>
+                <input type="tel" placeholder="Телефон" id="phone" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="error-message">Помилка: некоректний номер</small>
+              </div>
+              <div class="button-communication">
+                <button>Зв'язатися</button>
+              </div>
+              <p>Ім'я Прізвище</p>
+              Тел. <a href="tel: +380900000000">+380900000000</a>
+            </form>
+          </div>
+          
+          <div class="information-house">
+            <h2>Котедж від забудовника 134м2 у Скнилові</h2>
+            <p class="price">Вулиця:</br>
+            4 157 381 грн.</br>
+            <span class="description">ОПИС</span></p>
+            <p class="text-description">Ти завжди мріяв жити там, де нечутно трамваю, де спокій та затишок!
+              Ранок починати з філіжанки ароматної кави з корицею, насолоджуючись ранковим сходом сонця у власній кухні-вітальні, так, щоб без поспіху, спостерігати за метушнею міста, а вечорами, насолоджуватись неймовірною панорамою.</p>
+          </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.774501173837!2d24.068751199999998!3d49.827903299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ac2b2c4f71cb3%3A0xdfcd6bfe20e6a086!2zNjJWLCDQstGD0LvQuNGG0Y8g0J_QsNGB0ZbRh9C90LAsIDYy0JIsINCb0YzQstC-0LIsINCb0YzQstC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNzkwMDA!5e0!3m2!1suk!2sua!4v1714843088115!5m2!1suk!2sua" class="maps"></iframe>
+    </main>
+    
+    <footer><center>© 2024 Герчук Вікторія<br> 
+        Всі права захищені.<br>
+        м.Львів<br>
+        Email: vikaherchyk@gmail.com</center></footer> 
+
+    <!-- Ваши скрипты или другие ресурсы -->
+    <script src="./js/script_form.js"></script>
+    <script src="js/gallery.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

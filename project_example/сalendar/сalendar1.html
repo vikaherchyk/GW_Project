@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Календар з зайнятими днями</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    .ui-datepicker-unavailable {
+      background-color: #ffcccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Календар з зайнятими днями</h1>
+
+  <p>Перевірити доступні дати:</p>
+  <button id="open-datepicker">Перевірити доступні дати</button>
+
+
+  <!-- Додаємо елемент #datepicker -->
+  <input type="text" id="datepicker" style="display: none;">
+
+  
+  <script>
+    $(function() {
+      var bookedDates = ["2024-05-10", "2024-05-15", "2024-05-20"]; // Приклад зайнятих дат
+
+      function disableDates(date) {
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        var cssClass = bookedDates.indexOf(string) == -1 ? "" : "ui-datepicker-unavailable";
+        return [bookedDates.indexOf(string) == -1, cssClass];
+      }
+
+      $("#datepicker").datepicker({
+        beforeShowDay: disableDates,
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'yy-mm-dd',
+        yearRange: '-1:+10' // Можливість вибору років від -100 до +100
+      });
+
+      // Відкриття календаря при натисканні кнопки
+      $("#open-datepicker").on("click", function() {
+        $("#datepicker").css("display", "block");
+        $("#datepicker").datepicker("show");
+      });
+    });
+  </script>
+</body>
+</html>
